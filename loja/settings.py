@@ -38,6 +38,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    'produto',
+    'perfil',
+    'pedido',
     
     
     'debug_toolbar',
