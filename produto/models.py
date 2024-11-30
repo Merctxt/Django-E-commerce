@@ -3,6 +3,7 @@ from PIL import Image
 import os
 from django.conf import settings
 from django.utils.text import slugify
+from utils import utils
 
 class Produto(models.Model):
     nome = models.CharField(max_length=250)
@@ -15,11 +16,11 @@ class Produto(models.Model):
     tipo = models.CharField(max_length=1, choices=(('V', 'Variação'), ('S', 'Simples')), default='V')
 
     def get_preco_formatado(self):
-        return f'R$ {self.preco_marketing:.2f}'.replace('.', ',')
+        return utils.formata_preco(self.preco_marketing)
     get_preco_formatado.short_description = 'Preço'
 
     def get_preco_promocional_formatado(self):
-        return f'R$ {self.preco_marketing_promocional:.2f}'.replace('.', ',')
+        return utils.formata_preco(self.preco_marketing_promocional)
     get_preco_promocional_formatado.short_description = 'Preço Promocional'
 
     def resize_image(self, image, width):
