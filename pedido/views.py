@@ -6,7 +6,7 @@ from django.views.generic import ListView
 class Pagar(View):
     ...
 
-class FecharPedido(View):
+class SalvarPedido(View):
     ...
 
 class Detalhe(View):
