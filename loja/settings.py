@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
 from pathlib import Path
+from django.conf import settings
 import os
 from django.contrib.messages import constants #type: ignore
 
@@ -29,7 +30,6 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -44,9 +44,14 @@ INSTALLED_APPS = [
     'perfil',
     'pedido',
     
-    
+    'crispy_forms',
+    'crispy_bootstrap4',
     'debug_toolbar',
 ]
+
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap4"
+ 
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -149,6 +154,8 @@ MESSAGE_TAGS = {
 
 SESSION_COOKIE_AGE = 60 * 60 * 24 * 7
 SESSION_SAVE_EVERY_REQUEST = False
+
+
 
 INTERNAL_IPS = [
     '127.0.0.1',
